@@ -24,6 +24,7 @@ const AutoSearch = () => {
       setMailServiceTitle("");
       setImgSrc("mail.png");
     } else {
+      //clear white spaces
       const noSpacesNum = currNum.replace(/\s/g, "");
       setTrackNum(noSpacesNum);
 
@@ -45,6 +46,7 @@ const AutoSearch = () => {
     setIsLoading(true);
     setResult("");
 
+    //call API based on the tracking number
     if (uspsRegex.test(num)) {
       getUSPSdata(num).then((r) => {
         setIsLoading(false);
@@ -63,6 +65,9 @@ const AutoSearch = () => {
         setResult(r);
         setMailServiceTitle("FedEX");
       });
+    } else {
+      setIsLoading(false);
+      setResult(`${num} doesn't seem to be a valid tracking number, Please check it and try again.`);
     }
   };
 

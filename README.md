@@ -1,4 +1,4 @@
-# Mail tracker component
+# Mail tracker
 
 A simple mail tracker component made with React.js.
 
@@ -16,7 +16,7 @@ to auto-detect the tracking number I used a regex based on each companies tracki
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-# Example Tracking Numbers
+# Example tracking numbers for reference
 
 | Tracking Number                    | Kind                                | Tracking Carrier |
 |------------------------------------|-------------------------------------|------------------|
