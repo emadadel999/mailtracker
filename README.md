@@ -4,9 +4,9 @@ A simple mail tracker component made with React.js.
 
 It auto-detects the mailing service provider based on the tracking number provided.
 
-I am using only 3 companies as a proof of conecept --> USPS, UPS and Fedex
+API calls are just mocked and I am using only 3 companies as a proof of conecept --> USPS, UPS and Fedex.
 
-to auto-detect the tracking number I used a regex based on each companies tracking number.
+To auto-detect the tracking number I used a regex based on each company's tracking number.
 
 
 # Run the project using this command:
