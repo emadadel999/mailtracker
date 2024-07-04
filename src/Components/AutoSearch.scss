@@ -1,0 +1,237 @@
+$border-radius: 30px;
+
+.search-component {
+    border-radius: $border-radius;
+    box-shadow: 0px 0px 0px 2px rgb(0, 46, 91);
+
+    &:has(.result-container) {
+        .input-container {
+            box-shadow: 0px 2px 1px 0px rgb(142, 141, 141);
+        }
+    }
+}
+
+$spacing: 10px;
+$input-icon-width: 60px;
+$searchbar-height: 45px;
+
+.input-container {
+    min-width: 500px;
+
+    @media (max-width: 540px) {
+        min-width: 250px;
+    }
+
+    position: relative;
+    border-radius: $border-radius;
+}
+
+
+.input {
+    width: 100%;
+    min-height: $searchbar-height;
+    max-height: $searchbar-height;
+    border: 0;
+    padding: 0 $input-icon-width;
+    border-radius: $border-radius;
+    background-color: white;
+    font-size: 15px;
+
+    &:focus-visible {
+        outline: 2px solid rgb(50, 129, 255);
+    }
+
+    &::-webkit-search-cancel-button {
+        position: relative;
+        right: 20px;
+    }
+
+
+}
+
+.--input-icon {
+    width: $input-icon-width;
+    height: calc($searchbar-height - $spacing);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: inherit;
+    padding: 0;
+    transition: all 0.5s;
+
+    &.--right {
+        left: unset;
+        right: 2px;
+        border-top-right-radius: $border-radius;
+        border-bottom-right-radius: $border-radius;
+        transform: unset;
+    }
+
+    &.--disabled {
+        border: 0;
+        background-color: inherit;
+    }
+
+    .--icon {
+        max-width: 100%;
+        max-height: 100%;
+    }
+}
+
+.search-button {
+    cursor: pointer;
+    height: calc($searchbar-height - 4px);
+    min-width: $input-icon-width;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 0;
+    background-color: transparent;
+    top: 2px;
+    bottom: 2px;
+    transition: all 0.5s;
+
+    .--icon {
+        transition: all 0.1s linear;
+    }
+
+    &:hover {
+        .--icon {
+            scale: 1.2;
+        }
+    }
+
+    &:disabled {
+        cursor: not-allowed;
+        background-color: rgb(231, 238, 252);
+    }
+
+}
+
+$results-height: 200px;
+
+.result-container {
+    min-height: $results-height;
+    display: flex;
+    flex-direction: column;
+
+    &:has(.loading-container) {
+        justify-content: center;
+        align-items: center;
+    }
+
+    &:has(.result) {
+        min-height: auto;
+    }
+
+    background-color: #E1EBEE;
+    border-bottom-right-radius: $border-radius;
+    border-bottom-left-radius: $border-radius;
+    margin-top: - calc($searchbar-height / 2);
+    padding: calc($searchbar-height / 2);
+}
+
+
+
+.results-enter {
+    min-height: 0;
+
+    .loading-container {
+        height: 0;
+        display: none;
+    }
+}
+
+.results-enter-active {
+    min-height: $results-height;
+    transition: all 600ms;
+}
+
+.results-exit {
+    min-height: $results-height;
+}
+
+.results-exit-active {
+    min-height: 0;
+    transition: all 600ms;
+}
+
+.result {
+    margin: 0px;
+    // padding-top: calc($searchbar-height / 2);
+}
+
+
+.result-title {
+    all: unset;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: calc(0.5 * $border-radius);
+    padding: 0 calc($searchbar-height / 2);
+
+    &.--no-result {
+        padding: calc($searchbar-height / 2);
+        cursor: text;
+    }
+
+    margin-top: calc($searchbar-height / 3);
+
+    background-color: rgb(199, 229, 247);
+
+    &:hover {
+        background-color: rgb(180, 215, 240);
+    }
+
+    .result-text {
+        margin: 0;
+        color: #3a3d75;
+    }
+}
+
+.result-icon {
+    width: 80px;
+}
+
+.result-text {
+    text-decoration: none;
+    margin-left: calc($searchbar-height / 5);
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+.result-status {
+    font-weight: 600;
+    color: rgb(0, 128, 0);
+}
+
+.loading-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loading {
+    border: 3px solid #0077C0;
+    border-top: 3px solid transparent;
+    border-radius: 50%;
+    width: calc($input-icon-width);
+    height: calc($input-icon-width);
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
