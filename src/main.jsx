@@ -1,8 +1,8 @@
-import React from "react";
-import { createRoot } from "react-dom/client";
+import { createRoot } from 'react-dom/client';
+import AutoSearch from './Components/AutoSearch';
 
-import App from "./App";
+import './styles/main.scss';
 
-const container = document.getElementById("app");
+const container = document.getElementById('app');
 const root = createRoot(container);
-root.render(<App />);
+root.render(<AutoSearch />);

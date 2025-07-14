@@ -1,23 +1,38 @@
 # Mail tracker
 
-A simple mail tracker component made with React.js.
+simple mail tracker component made with React.js
 
-It auto-detects the mailing service provider based on the tracking number provided.
+- tracking details provider is [ship24](https://www.ship24.com/).
 
-API calls are just mocked and I am using only 3 companies as a proof of conecept --> USPS, UPS and Fedex.
+- if using a supported mailing service provider (UPS, USPS, or FEDEX for now), the app will auto-detect it based on the tracking number provided.
 
-To auto-detect the tracking number I used a regex based on each company's tracking number.
+- to auto-detect the tracking number it uses a regex based on each company's tracking number.
 
+### View it live [here](https://mail-tracker.eabdelmaksoud.me)
 
-# Run the project using this command:
+---
 
-### `npm start`
+## Run it:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+instal dependencies
 
-# Example tracking numbers for reference
+```bash
+npm i
+```
 
+then run
+
+```bash
+npm run dev
+```
+
+go to [http://localhost:5173](http://localhost:5173) to view it in your browser.
+
+---
+
+### Example tracking numbers for reference
+
+```bash
 | Tracking Number                    | Kind                                | Tracking Carrier |
 |------------------------------------|-------------------------------------|------------------|
 | 03071790000523483741               | USPS 20                             | USPS             |
@@ -69,9 +84,4 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 | CP000000000US                      | Priority Mail International         | USPS             |
 | 9208800000000000000000             | Registered Mail                     | USPS             |
 | 9202100000000000000000             | Signature Confirmation              | USPS             |
-
-
-# Source
-I found the Regex in a Stakeoverflow answer to a question, Check it here:
-https://stackoverflow.com/questions/619977/regular-expression-patterns-for-tracking-numbers
-
+```
